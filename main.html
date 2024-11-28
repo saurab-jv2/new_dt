@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Since November 20, 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .time-container {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Time Since November 20, 2024</h1>
+    <div class="time-container" id="timeSince">
+        Loading...
+    </div>
+
+    <script>
+        // Function to calculate time and days since November 20, 2024
+        function timeSinceNov2024() {
+            // Define the target date (20th November 2024)
+            const targetDate = new Date("2024-11-20T00:00:00");
+
+            // Get the current date and time
+            const currentDate = new Date();
+
+            // Calculate the time difference in milliseconds
+            const timeDifference = currentDate - targetDate;
+
+            // Convert time difference to days, hours, minutes, and seconds
+            const daysPassed = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hoursPassed = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
+            const minutesPassed = Math.floor((timeDifference / (1000 * 60)) % 60);
+            const secondsPassed = Math.floor((timeDifference / 1000) % 60);
+
+            // Display the result
+            document.getElementById('timeSince').textContent = 
+                `${daysPassed} days, ${hoursPassed} hours, ${minutesPassed} minutes, and ${secondsPassed} seconds`;
+        }
+
+        // Update the time every second
+        setInterval(timeSinceNov2024, 1000);
+    </script>
+</body>
+</html>
